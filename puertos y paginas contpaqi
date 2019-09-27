@@ -1,0 +1,190 @@
+echo "SQL SERVER ENTRADA"
+netsh advfirewall firewall add rule name="SQL" dir=in	action=allow protocol=	tcp	localport=	1433		
+netsh advfirewall firewall add rule name="BROWSER"	dir=in	action=allow protocol=	udp	localport=	1434
+netsh advfirewall firewall add rule name="Server Service Broker"	dir=in	action=allow protocol=	udp	localport=	4022
+netsh advfirewall firewall add rule name="SQL Debugger/RPC"	dir=in	action=allow protocol=	udp	localport=	135
+netsh advfirewall firewall add rule name="Analysis Services"	dir=in	action=allow protocol=	udp	localport=	2383
+netsh advfirewall firewall add rule name="sql browser"	dir=    in	action=allow protocol=	udp	localport=	2382
+echo "SQL SERVER SALIDA"
+netsh advfirewall firewall add rule name="SQL"	dir=	out	action=allow protocol=	tcp	remoteport=	1433
+netsh advfirewall firewall add rule name="BROWSER"	dir=	out	action=allow protocol=	udp	remoteport=	1434
+netsh advfirewall firewall add rule name="Server Service Broker"	dir=	out	action=allow protocol=	udp	remoteport=	4022
+netsh advfirewall firewall add rule name="SQL Debugger/RPC"	dir=	out	action=allow protocol=	udp	remoteport=	135
+netsh advfirewall firewall add rule name="Analysis Services"	dir=	out	action=allow protocol=	udp	remoteport=	2383
+netsh advfirewall firewall add rule name="sql browser"	dir=	out	action=allow protocol=	udp	remoteport=	2382
+echo "ADMINPAQ ENTRADA (x86)"
+netsh advfirewall firewall add rule name="adminpaq	exe" dir=	in	action=allow program="%programfiles(x86)%\Compacw\AdminPAQ\AdminPAQ.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Adminpaq Cancelacion	exe" dir=	in	action=allow program="%programfiles(x86)%\Compacw\AdminPAQ\AdmCancelacionCFDi.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="reporteador Admin	exe" dir=	in	action=allow program="%programfiles(x86)%\Compacw\AdminPAQ\winrep32.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Adminpaq 9020"	dir=in	action=allow protocol=	tcp	localport=	9020
+echo "ADMINPAQ SALIDA (x86)"
+netsh advfirewall firewall add rule name="Adminpaq Cancelacion	exe" dir=	out	action=allow program="%programfiles(x86)%\Compacw\AdminPAQ\AdmCancelacionCFDi.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Adminpaq 	exe" dir=	out	action=allow program="%programfiles(x86)%\Compacw\AdminPAQ\AdminPAQ.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="reporteador Admin	exe" dir=	out	action=allow program="%programfiles(x86)%\Compacw\AdminPAQ\winrep32.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Adminpaq 9020"	dir=out	action=allow protocol=	tcp	remoteport=	9020
+echo "ADMINPAQ ENTRADA"
+netsh advfirewall firewall add rule name="adminpaq	exe" dir=	in	action=allow program="%programfiles%\Compacw\AdminPAQ\AdminPAQ.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Adminpaq Cancelacion	exe" dir=	in	action=allow program="%programfiles%\Compacw\AdminPAQ\AdmCancelacionCFDi.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="reporteador Admin	exe" dir=	in	action=allow program="%programfiles%\Compacw\AdminPAQ\winrep32.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Adminpaq 9020"	dir=in	action=allow protocol=	tcp	localport=	9020
+echo "ADMINPAQ SALIDA"
+netsh advfirewall firewall add rule name="Adminpaq Cancelacion	exe" dir=	out	action=allow program="%programfiles%\Compacw\AdminPAQ\AdmCancelacionCFDi.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Adminpaq 	exe" dir=	out	action=allow program="%programfiles%\Compacw\AdminPAQ\AdminPAQ.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="reporteador Admin	exe" dir=	out	action=allow program="%programfiles%\Compacw\AdminPAQ\winrep32.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Adminpaq 9020"	dir=out	action=allow protocol=	tcp	remoteport=	9020
+echo "COMERCIAL ENTRADA"
+netsh advfirewall firewall add rule name="CONTPAQI COMERCIAL" dir=in	action=allow protocol=	tcp	localport=	9020
+netsh advfirewall firewall add rule name="REPORTEADOR 1099" dir=in action=allow protocol=	tcp	localport=	1099
+netsh advfirewall firewall add rule name="REPORTEADOR 1138" dir=in	action=allow protocol=	tcp	localport=	1138
+netsh advfirewall firewall add rule name="REPORTEADOR 1139" dir=in	action=allow protocol=	tcp	localport=	1139
+netsh advfirewall firewall add rule name="REPORTEADOR 1775" dir=in	action=allow protocol=	tcp	localport=	1775
+netsh advfirewall firewall add rule name="REPORTEADOR 2003" dir=in	action=allow protocol=	tcp	localport=	2003
+echo "COMERCIAL SALIDA"
+netsh advfirewall firewall add rule name="CONTPAQI COMERCIAL" dir=out	action=allow protocol=	tcp	remoteport=	9020
+netsh advfirewall firewall add rule name="REPORTEADOR 1099" dir=out action=allow protocol=	tcp	remoteport=	1099
+netsh advfirewall firewall add rule name="REPORTEADOR 1138" dir=out action=allow protocol=	tcp	remoteport=	1138
+netsh advfirewall firewall add rule name="REPORTEADOR 1139" dir=out action=allow protocol=	tcp	remoteport=	1139
+netsh advfirewall firewall add rule name="REPORTEADOR 1775" dir=out action=allow protocol=	tcp	remoteport=	1775
+netsh advfirewall firewall add rule name="REPORTEADOR 2003" dir=out action=allow protocol=	tcp	remoteport=	2003
+echo "EJECUTABLES COMERCIAL ENTRADA"
+netsh advfirewall firewall add rule name="Comercial	exe" dir=in	action=allow program="%programfiles(x86)%\Compac\COMERCIAL\Comercial.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="com1	exe" dir=in	action=allow program="%programfiles(x86)%\Compac\COMERCIAL\ContPAQiComercial.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="com2	exe" dir=in	action=allow program="%programfiles(x86)%\Compac\COMERCIAL\CONTPAQiDBS.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="formatos digitales	exe" dir=in	action=allow program="%programfiles(x86)%\Compac\Formatos Digitales\FormatosDigitales.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Comercial reporteador terminal	exe" dir=in	action=allow program="%programfiles(x86)%\Compac\Reporteador i\Terminal\cliente_reporteador_i.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Comercial reporteador servidor	exe" dir=in	action=allow program="%programfiles(x86)%\Compac\Reporteador i\Servidor\servidor_reporteador_i.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="formatos digitales 1	exe" dir=in	action=allow program="%programfiles(x86)%\Compac\Servidor de Aplicaciones\FormatosDigitales.exe"	enable=yes profile=any
+echo "EJECUTABLES COMERCIAL SALIDA"
+netsh advfirewall firewall add rule name="com1	exe" dir=out	action=allow program="%programfiles(x86)%\Compac\COMERCIAL\ContPAQiComercial.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="com2	exe" dir=out	action=allow program="%programfiles(x86)%\Compac\COMERCIAL\CONTPAQiDBS.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="formatos digitales	exe" dir=out	action=allow program="%programfiles(x86)%\Compac\Formatos Digitales\FormatosDigitales.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Comercial reporteador terminal	exe" dir=out	action=allow program="%programfiles(x86)%\Compac\Reporteador i\Terminal\cliente_reporteador_i.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Comercial reporteador servidor	exe" dir=out	action=allow program="%programfiles(x86)%\Compac\Reporteador i\Servidor\servidor_reporteador_i.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="formatos digitales 1	exe" dir=out	action=allow program="%programfiles(x86)%\Compac\Servidor de Aplicaciones\FormatosDigitales.exe"	enable=yes profile=any
+echo "COMERCIAL ENTRADA (x64)"
+netsh advfirewall firewall add rule name="CONTPAQI COMERCIAL" dir=in	action=allow protocol=	tcp	localport=	9020
+netsh advfirewall firewall add rule name="REPORTEADOR 1099" dir=in action=allow protocol=	tcp	localport=	1099
+netsh advfirewall firewall add rule name="REPORTEADOR 1138" dir=in	action=allow protocol=	tcp	localport=	1138
+netsh advfirewall firewall add rule name="REPORTEADOR 1139" dir=in	action=allow protocol=	tcp	localport=	1139
+netsh advfirewall firewall add rule name="REPORTEADOR 1775" dir=in	action=allow protocol=	tcp	localport=	1775
+netsh advfirewall firewall add rule name="REPORTEADOR 2003" dir=in	action=allow protocol=	tcp	localport=	2003
+echo "PUERTOS SALIDA (x64)"
+netsh advfirewall firewall add rule name="CONTPAQI COMERCIAL" dir=out	action=allow protocol=	tcp	remoteport=	9020
+netsh advfirewall firewall add rule name="REPORTEADOR 1099" dir=out action=allow protocol=	tcp	remoteport=	1099
+netsh advfirewall firewall add rule name="REPORTEADOR 1138" dir=out action=allow protocol=	tcp	remoteport=	1138
+netsh advfirewall firewall add rule name="REPORTEADOR 1139" dir=out action=allow protocol=	tcp	remoteport=	1139
+netsh advfirewall firewall add rule name="REPORTEADOR 1775" dir=out action=allow protocol=	tcp	remoteport=	1775
+netsh advfirewall firewall add rule name="REPORTEADOR 2003" dir=out action=allow protocol=	tcp	remoteport=	2003
+echo "EJECUTABLES COMERCIAL ENTRADA (X64)"
+netsh advfirewall firewall add rule name="Comercial	exe" dir=in	action=allow program="%programfiles%\Compac\COMERCIAL\Comercial.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="com1	exe" dir=in	action=allow program="%programfiles%\Compac\COMERCIAL\ContPAQiComercial.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="com2	exe" dir=in	action=allow program="%programfiles%\Compac\COMERCIAL\CONTPAQiDBS.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="formatos digitales	exe" dir=in	action=allow program="%programfiles%\Compac\Formatos Digitales\FormatosDigitales.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Comercial reporteador terminal	exe" dir=in	action=allow program="%programfiles%\Compac\Reporteador i\Terminal\cliente_reporteador_i.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Comercial reporteador servidor	exe" dir=in	action=allow program="%programfiles%\Compac\Reporteador i\Servidor\servidor_reporteador_i.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="formatos digitales 1	exe" dir=in	action=allow program="%programfiles%\Compac\Servidor de Aplicaciones\FormatosDigitales.exe"	enable=yes profile=any
+echo "EJECUTABLES COMERCAL SALIDA (X64)"
+netsh advfirewall firewall add rule name="Comercial	exe" dir=out	action=allow program="%programfiles%\Compac\COMERCIAL\Comercial.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="com1	exe" dir=out	action=allow program="%programfiles%\Compac\COMERCIAL\ContPAQiComercial.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="com2	exe" dir=out	action=allow program="%programfiles%\Compac\COMERCIAL\CONTPAQiDBS.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="formatos digitales	exe" dir=out	action=allow program="%programfiles%\Compac\Formatos Digitales\FormatosDigitales.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Comercial reporteador terminal	exe" dir=out	action=allow program="%programfiles%\Compac\Reporteador i\Terminal\cliente_reporteador_i.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="Comercial reporteador servidor	exe" dir=out	action=allow program="%programfiles%\Compac\Reporteador i\Servidor\servidor_reporteador_i.exe"	enable=yes profile=any
+netsh advfirewall firewall add rule name="formatos digitales 1	exe" dir=out	action=allow program="%programfiles%\Compac\Servidor de Aplicaciones\FormatosDigitales.exe"	enable=yes profile=any
+echo "CONTABILIDAD ENTRADA (X86)"
+netsh advfirewall firewall add rule name="contabilidad	exe" dir=	in	action=allow program="%programfiles(x86)%\Compac\Contabilidad\contabilidad_i.exe"	enable=yes profile=any	
+netsh advfirewall firewall add rule name="bancos exe" dir=	in	action=allow program="%programfiles(x86)%\Compac\Bancos\bancos_i.exe"	enable=yes profile=any	
+netsh advfirewall firewall add rule name="servidor de aplicaciones	exe" dir=	in	action=allow program="%programfiles(x86)%\Compac\Servidor\CONTPAQ_I_SERVIDOR.exe"	enable=yes profile=any	
+netsh advfirewall firewall add rule name="servidor de aplicaciones servicio	exe" dir=	in	action=allow program="%programfiles(x86)%\	Compac\Servidor\servidor_servicio.exe"	enable=yes profile=any
+echo "CONTABILIDAD SALIDA (X86)"
+netsh advfirewall firewall add rule name="contabilidad exe" dir=	out	action=allow program="%programfiles(x86)%\Compac\Contabilidad\contabilidad_i.exe"	enable=yes profile=any		
+netsh advfirewall firewall add rule name="bancos exe" dir=	out	action=allow program="%programfiles(x86)%\Compac\Bancos\bancos_i.exe"	enable=yes profile=any	
+netsh advfirewall firewall add rule name="servidor de aplicaciones exe" dir=	out	action=allow program="%programfiles(x86)%\Compac\Servidor\CONTPAQ_I_SERVIDOR.exe"	enable=yes profile=any		
+netsh advfirewall firewall add rule name="servidor de aplicaciones servicio exe" dir=	out	action=allow program="%programfiles(x86)%\Compac\Servidor\servidor_servicio.exe"	enable=yes profile=any		
+echo "CONTABILIDAD ENTRADA (X86)"
+netsh advfirewall firewall add rule name="CONTPAQI CONTABILIDAD - BANCOS"	dir=in	action=allow protocol=	tcp	localport=	9047	
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1099"	dir=in action=allow protocol=	tcp	localport=	1099
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1138"	dir=in	action=allow protocol=	tcp	localport=	1138
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1139"	dir=in	action=allow protocol=	tcp	localport=	1139
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1775"	dir=in	action=allow protocol=	tcp	localport=	1775
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 2003"	dir=in	action=allow protocol=	tcp	localport=	2003	
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 9009"	dir=in	action=allow protocol=	tcp	localport=	9009
+echo "CONTABILIDAD SALIDA (X86)"
+netsh advfirewall firewall add rule name="CONTPAQI CONTABILIDAD - BANCOs"	dir=	out	action=allow protocol=	tcp	remoteport=	9047
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1099"	dir=	out	action=allow protocol=	tcp	remoteport=	1099
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1138"	dir=	out	action=allow protocol=	tcp	remoteport=	1138
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1139"	dir=	out	action=allow protocol=	tcp	remoteport=	1139
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1775"	dir=	out	action=allow protocol=	tcp	remoteport=	1775
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 2003"	dir=	out	action=allow protocol=	tcp	remoteport=	2003
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 9009"	dir=	out	action=allow protocol=	tcp	remoteport=	9009
+echo "CONTABILIDAD ENTRADA"
+netsh advfirewall firewall add rule name="contabilidad	exe" dir=	in	action=allow program="%programfiles%\Compac\Contabilidad\contabilidad_i.exe"	enable=yes profile=any	
+netsh advfirewall firewall add rule name="bancos exe" dir=	in	action=allow program="%programfiles%\Compac\Bancos\bancos_i.exe"	enable=yes profile=any	
+netsh advfirewall firewall add rule name="servidor de aplicaciones	exe" dir=	in	action=allow program="%programfiles%\Compac\Servidor\CONTPAQ_I_SERVIDOR.exe"	enable=yes profile=any	
+netsh advfirewall firewall add rule name="servidor de aplicaciones servicio	exe" dir=	in	action=allow program="%programfiles%\	Compac\Servidor\servidor_servicio.exe"	enable=yes profile=any
+echo "CONTABILIDAD SALIDA"
+netsh advfirewall firewall add rule name="contabilidad exe" dir=	out	action=allow program="%programfiles%\Compac\Contabilidad\contabilidad_i.exe"	enable=yes profile=any	
+netsh advfirewall firewall add rule name="bancos exe" dir=	out	action=allow program="%programfiles%\Compac\Bancos\bancos_i.exe"	enable=yes profile=any		
+netsh advfirewall firewall add rule name="servidor de aplicaciones exe" dir=	out	action=allow program="%programfiles%\Compac\Servidor\CONTPAQ_I_SERVIDOR.exe"	enable=yes profile=any		
+netsh advfirewall firewall add rule name="servidor de aplicaciones servicio exe" dir=	out	action=allow program="%programfiles%\Compac\Servidor\servidor_servicio.exe"	enable=yes profile=any		
+echo "CONTABILIDAD ENTRADA"
+netsh advfirewall firewall add rule name="CONTPAQI CONTABILIDAD - BANCOS"	dir=in	action=allow protocol=	tcp	localport=	9047	
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1099"	dir=in action=allow protocol=	tcp	localport=	1099
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1138"	dir=in	action=allow protocol=	tcp	localport=	1138
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1139"	dir=in	action=allow protocol=	tcp	localport=	1139
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1775"	dir=in	action=allow protocol=	tcp	localport=	1775
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 2003"	dir=in	action=allow protocol=	tcp	localport=	2003
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 9009"	dir=in	action=allow protocol=	tcp	localport=	9009	
+echo "CONTABILIDAD SALIDA"
+netsh advfirewall firewall add rule name="CONTPAQI CONTABILIDAD - BANCOs"	dir=	out	action=allow protocol=	tcp	remoteport=	9047
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1099"	dir=	out	action=allow protocol=	tcp	remoteport=	1099
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1138"	dir=	out	action=allow protocol=	tcp	remoteport=	1138
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1139"	dir=	out	action=allow protocol=	tcp	remoteport=	1139
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 1775"	dir=	out	action=allow protocol=	tcp	remoteport=	1775
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 2003"	dir=	out	action=allow protocol=	tcp	remoteport=	2003
+netsh advfirewall firewall add rule name="SERVIDOR DE APLICACIONES 9009"	dir=	out	action=allow protocol=	tcp	remoteport=	9009
+echo "NOMINAS ENTRADA (X86)"
+netsh advfirewall firewall add rule name="nominas exe" dir=in	action=allow program="%programfiles(x86)%\Compac\Nominas\CONTPAQ_i_NOMINAS.exe"	enable=yes profile=any
+echo "NOMINAS SALIDA (X86)"
+netsh advfirewall firewall add rule name="nominas exe" dir=out	action=allow program="%programfiles(x86)%\Compac\Nominas\CONTPAQ_i_NOMINAS.exe"	enable=yes profile=any
+echo "NOMINAS ENTRADA (X86)"
+netsh advfirewall firewall add rule name="CONTPAQI NOMINAS"	dir=in	action=allow protocol=	tcp	localport=	9005
+netsh advfirewall firewall add rule name="LICENCIAMIENTO"	dir=in	action=allow protocol=	tcp	localport=	7653
+echo "NOMINAS SALIDA (X86)"
+netsh advfirewall firewall add rule name="CONTPAQI NOMINAS"	dir=out	action=allow protocol=	tcp	remoteport=	9005
+netsh advfirewall firewall add rule name="LICENCIAMIENTO"	dir=	out	action=allow protocol=	tcp	remoteport=	7653
+echo "NOMINAS ENTRADA"
+netsh advfirewall firewall add rule name="nominas exe" dir=in	action=allow program="%programfiles%\Compac\Nominas\CONTPAQ_i_NOMINAS.exe"	enable=yes profile=any
+echo "NOMINAS SALIDA"
+netsh advfirewall firewall add rule name="nominas exe" dir=out	action=allow program="%programfiles%\Compac\Nominas\CONTPAQ_i_NOMINAS.exe"	enable=yes profile=any
+echo "NOMINAS ENTRADA"
+netsh advfirewall firewall add rule name="CONTPAQI NOMINAS"	dir=in	action=allow protocol=	tcp	localport=	9005
+netsh advfirewall firewall add rule name="LICENCIAMIENTO"	dir=in	action=allow protocol=	tcp	localport=	7653
+echo "NOMINAS SALIDA"
+netsh advfirewall firewall add rule name="CONTPAQI NOMINAS"	dir=out	action=allow protocol=	tcp	remoteport=	9005
+netsh advfirewall firewall add rule name="LICENCIAMIENTO"	dir=	out	action=allow protocol=	tcp	remoteport=	7653
+echo "SACI ENTRADA"
+netsh advfirewall firewall add rule name="saci	exe" dir=	in	action=allow program="%programfiles%\Compac\Servidor de Aplicaciones\saci.exe"	enable=yes profile=any	
+netsh advfirewall firewall add rule name="saci admin	exe" dir=	in	action=allow program="%programfiles%\Compac\Servidor de Aplicaciones\SaciAdmin.exe"	enable=yes profile=any	
+echo "SACI SALIDA"
+netsh advfirewall firewall add rule name="saci	exe" dir=	out	action=allow program="%programfiles%\Compac\Servidor de Aplicaciones\saci.exe"	enable=yes profile=any	
+netsh advfirewall firewall add rule name="saci admin	exe" dir=	out	action=allow program="%programfiles%\Compac\Servidor de Aplicaciones\SaciAdmin.exe"	enable=yes profile=any	
+echo "SACI ENTRADA"
+netsh advfirewall firewall add rule name="SACI 9081"	dir=in	action=allow protocol=	tcp	localport=	9081	
+netsh advfirewall firewall add rule name="SACI 9080"	dir=in	action=allow protocol=	tcp	localport=	9080
+netsh advfirewall firewall add rule name="SACI 9079"	dir=in	action=allow protocol=	tcp	localport=	9079
+netsh advfirewall firewall add rule name="SACI 9082"	dir=in	action=allow protocol=	tcp	localport=	9082
+echo "SACI SALIDA"
+netsh advfirewall firewall add rule name="SACI 9081"	dir=	out	action=allow protocol=	tcp	remoteport=	9081
+netsh advfirewall firewall add rule name="SACI 9080"	dir=	out	action=allow protocol=	tcp	remoteport=	9080
+netsh advfirewall firewall add rule name="SACI 9079"	dir=	out	action=allow protocol=	tcp	remoteport=	9079
+netsh advfirewall firewall add rule name="SACI 9082"	dir=	out	action=allow protocol=	tcp	remoteport=	9082
+echo "extras Entrada"
+netsh advfirewall firewall add rule name="Acerca De"	dir=in	action=allow protocol=	tcp	localport=	443
+netsh advfirewall firewall add rule name="Dominio"	dir=in	action=allow protocol=	tcp	localport=	587		
+netsh advfirewall firewall add rule name="Externa"	dir=in	action=allow protocol=	tcp	localport=	7653
+echo "Extras Salida"
+netsh advfirewall firewall add rule name="Acerca De"	dir=	out	action=allow protocol=	tcp	remoteport=	443
+netsh advfirewall firewall add rule name="Dominio"	dir=	out	action=allow protocol=	tcp	remoteport=	587
+netsh advfirewall firewall add rule name="Externa"	dir=	out	action=allow protocol=	tcp	remoteport=	7653
+
